@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iME-p6-Gpd">
+                                <rect key="frame" x="212" y="238" width="177" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="添加"/>
+                                <connections>
+                                    <action selector="addData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kkC-0d-OcB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixM-Tg-Bo0">
+                                <rect key="frame" x="212" y="285" width="177" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="jkf-qi-BHd"/>
+                                    <constraint firstAttribute="width" constant="177" id="qqc-xJ-9CO"/>
+                                </constraints>
+                                <state key="normal" title="删除"/>
+                                <connections>
+                                    <action selector="deleteData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dkD-1j-i0N"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msX-6h-xZp">
+                                <rect key="frame" x="212" y="332" width="177" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="查询"/>
+                                <connections>
+                                    <action selector="queryData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbb-uN-Hcu"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="年龄" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5cs-Yo-QjJ">
+                                <rect key="frame" x="212" y="191" width="177" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IdE-hl-ajW"/>
+                                    <constraint firstAttribute="width" constant="177" id="Jnb-H3-2dD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2r-ev-Nec">
+                                <rect key="frame" x="212" y="144" width="177" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Fto-pz-vgS"/>
+                                    <constraint firstAttribute="width" constant="177" id="cdl-Hw-27o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ixM-Tg-Bo0" firstAttribute="width" secondItem="iME-p6-Gpd" secondAttribute="width" id="2b8-gy-Rwb"/>
+                            <constraint firstItem="iME-p6-Gpd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Zm-zX-RaE"/>
+                            <constraint firstItem="5cs-Yo-QjJ" firstAttribute="top" secondItem="M2r-ev-Nec" secondAttribute="bottom" constant="17" id="B3f-Mu-UpM"/>
+                            <constraint firstItem="ixM-Tg-Bo0" firstAttribute="top" secondItem="iME-p6-Gpd" secondAttribute="bottom" constant="17" id="BdU-Td-4Mi"/>
+                            <constraint firstItem="5cs-Yo-QjJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="L62-aH-K2B"/>
+                            <constraint firstItem="ixM-Tg-Bo0" firstAttribute="height" secondItem="iME-p6-Gpd" secondAttribute="height" id="N6T-fc-bpF"/>
+                            <constraint firstItem="ixM-Tg-Bo0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YRD-4X-b2C"/>
+                            <constraint firstItem="msX-6h-xZp" firstAttribute="top" secondItem="ixM-Tg-Bo0" secondAttribute="bottom" constant="17" id="cpH-ii-OkH"/>
+                            <constraint firstItem="iME-p6-Gpd" firstAttribute="top" secondItem="5cs-Yo-QjJ" secondAttribute="bottom" constant="17" id="dZR-ha-gY4"/>
+                            <constraint firstItem="ixM-Tg-Bo0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jP3-r9-QYU"/>
+                            <constraint firstItem="msX-6h-xZp" firstAttribute="height" secondItem="ixM-Tg-Bo0" secondAttribute="height" id="jmE-Om-0HR"/>
+                            <constraint firstItem="msX-6h-xZp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ml6-7i-IeG"/>
+                            <constraint firstItem="M2r-ev-Nec" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mzV-6t-YMD"/>
+                            <constraint firstItem="msX-6h-xZp" firstAttribute="width" secondItem="ixM-Tg-Bo0" secondAttribute="width" id="s4J-AS-9tS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="5cs-Yo-QjJ" id="5CF-Rh-Mbe"/>
+                        <outlet property="nameTextField" destination="M2r-ev-Nec" id="E1W-iM-aXp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="315" y="262"/>
+        </scene>
+    </scenes>
+</document>
