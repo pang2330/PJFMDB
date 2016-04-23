@@ -39,7 +39,7 @@ __block __weak __typeof(&*self)weakSelf = self;\
 {
     unsigned int propertyCount;
     objc_property_t *propertes = class_copyPropertyList([modelClass class], &propertyCount);
-    NSMutableString *str = [NSMutableString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (id integer primary key,",[self tableNameForClass:modelClass]];
+    NSMutableString *str = [NSMutableString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (",[self tableNameForClass:modelClass]];
     for (int i=0; i<propertyCount; i++) {
         objc_property_t property=propertes[i];
         [str appendString:@(property_getName(property))];
@@ -162,21 +162,22 @@ __block __weak __typeof(&*self)weakSelf = self;\
     if (![manager fileExistsAtPath:fielPath]) {
         fielPath = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)firstObject] stringByAppendingPathComponent:@"myData.db"];
     }
+    
     NSMutableArray *mutaleArray = [NSMutableArray array];
     self.dbQueue = [FMDatabaseQueue databaseQueueWithPath:fielPath];
     [self.dbQueue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         //查询
-        FMResultSet *resultSet = [db executeQuery:[NSString stringWithFormat:@"select * from %@",[self tableNameForClass:modelClass]]];
-        //循环获取记录中的字段
-        while ([resultSet next]) {
-            NSMutableDictionary *dic =[NSMutableDictionary dictionary];
-            [dic addEntriesFromDictionary:[resultSet resultDictionary]];
-            [dic removeObjectForKey:@"id"];
-            
-            
-            [mutaleArray addObject:dic];
+        if ([db tableExists:[self tableNameForClass:modelClass]]) {
+            FMResultSet *resultSet = [db executeQuery:[NSString stringWithFormat:@"select * from %@",[self tableNameForClass:modelClass]]];
+            //循环获取记录中的字段
+            while ([resultSet next]) {
+                NSMutableDictionary *dic =[NSMutableDictionary dictionary];
+                [dic addEntriesFromDictionary:[resultSet resultDictionary]];
+                [dic removeObjectForKey:@"id"];
+                
+                [mutaleArray addObject:dic];
+            }
         }
-
     }];
     return [mutaleArray copy];
 }
@@ -212,6 +213,8 @@ __block __weak __typeof(&*self)weakSelf = self;\
         }
     }
     [str appendString:@")"];
+    
+    
     NSLog(@"%@",[str copy]);
     return [str copy];
 }
